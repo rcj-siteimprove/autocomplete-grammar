@@ -1,0 +1,77 @@
+
+(* 
+Using EBNF syntax from https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form
+[...]: Optional
+?...?: Special sequence (in our case a regex)
+*)
+autocompleteAttributeValue 
+    = [?/^section-.+$/?], ["shipping" | "billing"], (unmodifiable | modifiable | (modifier, modifiable)), ["webauthn"];
+
+unmodifiable
+    = "name"
+    | "honorific-prefix"
+    | "given-name"
+    | "additional-name"
+    | "family-name"
+    | "honorific-suffix"
+    | "nickname"
+    | "username"
+    | "new-password"
+    | "current-password"
+    | "one-time-code"
+    | "organization-title"
+    | "organization"
+    | "street-address"
+    | "address-line1"
+    | "address-line2"
+    | "address-line3"
+    | "address-level4"
+    | "address-level3"
+    | "address-level2"
+    | "address-level1"
+    | "country"
+    | "country-name"
+    | "postal-code"
+    | "cc-name"
+    | "cc-given-name"
+    | "cc-additional-name"
+    | "cc-family-name"
+    | "cc-number"
+    | "cc-exp"
+    | "cc-exp-month"
+    | "cc-exp-year"
+    | "cc-csc"
+    | "cc-type"
+    | "transaction-currency"
+    | "transaction-amount"
+    | "language"
+    | "bday"
+    | "bday-day"
+    | "bday-month"
+    | "bday-year"
+    | "sex"
+    | "url"
+    | "photo"
+    ;
+
+modifier 
+    = "home"
+    | "work"
+    | "mobile"
+    | "fax"
+    | "pager"
+    ;
+
+modifiable
+    = "tel"
+    | "tel-country-code"
+    | "tel-national"
+    | "tel-area-code"
+    | "tel-local"
+    | "tel-local-prefix"
+    | "tel-local-suffix"
+    | "tel-extension"
+    | "email"
+    | "impp"
+    ;
+    
